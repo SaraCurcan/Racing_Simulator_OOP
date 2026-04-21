@@ -1,8 +1,10 @@
-//
-// Created by sara on 4/21/26.
-//
+#pragma once
+#include "Vehicle.h"
+#include "Exceptions.h"
+#include<iostream>
+#include<string>
 
-#ifndef VEHICLESIMULATOR_SPORTCAR_H
-#define VEHICLESIMULATOR_SPORTCAR_H
-
-#endif //VEHICLESIMULATOR_SPORTCAR_H
+class SportCar : public Vehicle {
+private:
+    static const double nitro = 50;
+};

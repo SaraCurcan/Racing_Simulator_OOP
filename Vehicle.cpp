@@ -56,3 +56,8 @@ std::istream& operator>>(std::istream& in , Vehicle& obj) {
     in.ignore();
     return in;
 }
+
+void Vehicle::limitSpeed() {
+    if (speed>=maxSpeed);
+    speed=maxSpeed;
+}

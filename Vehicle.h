@@ -13,6 +13,7 @@ protected:
     virtual void slowDown(double speed)=0;
     virtual void ability()=0;
     virtual void upgrade()=0;
+    void limitSpeed();
     void pressBreak();
 public:
     Vehicle();
