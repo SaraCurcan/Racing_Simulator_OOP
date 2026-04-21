@@ -2,23 +2,20 @@
 #include "Exceptions.h"
 #include<iostream>
 #include<string>
-SportCar::SportCar():Vehicle(), availableNitro(0){}
+SportCar::SportCar():Vehicle(){}
 SportCar::SportCar(std::string type, std::string brand, double maxSpeed, double price, double speed,int availableNitro)
-    :Vehicle(type,brand,maxSpeed,price,speed,1,0.4),availableNitro(availableNitro){}
+    :Vehicle(type,brand,maxSpeed,price,speed,1,0.4){}
 
-SportCar::SportCar(const SportCar &obj):Vehicle(obj), availableNitro(obj.availableNitro){}
+SportCar::SportCar(const SportCar &obj):Vehicle(obj){}
 SportCar& SportCar::operator=(const SportCar& obj) {
     if (this!=&obj) {
         Vehicle::operator=(obj);
-        availableNitro=obj.getAvailableNitro();
     }
     return *this;
 }
 SportCar::~SportCar(){}
 
 int SportCar::getAvailableNitro() const { return availableNitro; }
-
-void SportCar::setAvailableNitro(int availableNitro) { this->availableNitro=availableNitro; }
 
 void SportCar::applyUpgrade() {
     level+=1;
@@ -33,10 +30,22 @@ void SportCar::applyNitro() {
     if (availableNitro>0) {
         std::cout<<"Nitro applied "<<std::endl;
         setSpeed(getSpeed() + 100*acceleration);
-        setAvailableNitro(getAvailableNitro()-1);
+        availableNitro--;
     }
     else std::cout<<"No more available nitro "<<std::endl;
 }
 void SportCar::ability() {
     applyNitro();
 }
+
+std::ostream& operator<<(std::ostream& out, const SportCar& obj) {
+    out<<(const Vehicle&)obj;
+    out<<"Nitro: "<<obj.availableNitro<<std::endl;
+    return out;
+}
+
+std::istream& operator>>(std::istream& in, SportCar& obj) {
+    in>>(Vehicle&)obj;
+    return in;
+}
+int SportCar::availableNitro=0;

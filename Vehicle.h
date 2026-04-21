@@ -17,9 +17,6 @@ protected:
     void limitSpeed();
     void pressBreak();
     void increaseMaxSpeed(double value);
-    double getSpeed() const;
-    void setSpeed(double speed);
-    double getAcceleration() const;
     void setAcceleration(double acceleration);
 public:
     Vehicle();
@@ -29,6 +26,9 @@ public:
     virtual ~Vehicle();
     friend std::istream& operator>>(std::istream& in, Vehicle& obj);
     friend std::ostream& operator<<(std::ostream& out, const Vehicle& obj);
+    double getSpeed() const;
+    void setSpeed(double speed);
+    double getAcceleration() const;
     std::string getType() const;
     std::string getBrand() const;
     double getMaxSpeed() const;

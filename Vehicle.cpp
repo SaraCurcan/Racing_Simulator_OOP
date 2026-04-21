@@ -56,8 +56,7 @@ std::istream& operator>>(std::istream& in , Vehicle& obj) {
     if (obj.brand.empty()) throw InvalidNameException();
     std::cout<<"Type: ";
     getline(in,obj.type);
-    if (obj.type.empty()) throw InvalidNameException();
-    std::cout<<"Max Speed: ";
+    if (obj.type.empty()) throw InvalidNameException();   std::cout<<"Max Speed: ";
     in>>obj.maxSpeed;
     if (obj.maxSpeed<=0) throw InvalidNumber();
     in.ignore();

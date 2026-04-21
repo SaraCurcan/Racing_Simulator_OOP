@@ -6,7 +6,7 @@
 
 class SportCar : public Vehicle {
 private:
-    int availableNitro;
+    static int availableNitro;
     void applyNitro();
 public:
     SportCar();
@@ -20,7 +20,6 @@ public:
     void ability() override;
     void drift();
     int getAvailableNitro() const;
-    void setAvailableNitro(int availableNitro);
     friend std::ostream& operator<<(std::ostream& out,const SportCar& obj);
     friend std::istream& operator>>(std::istream& in, SportCar& obj);
 
