@@ -6,11 +6,11 @@
 
 class SportCar : public Vehicle {
 private:
-    int nitroUse;
+    int availableNitro;
     void applyNitro();
 public:
     SportCar();
-    SportCar(std::string type, std::string brand, double maxSpeed, double price, double speed, int nitroUse);
+    SportCar(std::string type, std::string brand, double maxSpeed, double price, double speed, int availableNitro);
     SportCar(const SportCar& obj);
     SportCar& operator=(const SportCar& obj);
     void accelerate(double speed) override;
@@ -18,7 +18,7 @@ public:
     void slowDown(double speed) override;
     void ability() override;
     void drift();
-    int getNitroUse() const;
+    int getAvailableNitro() const;
     friend std::ostream& operator<<(std::ostream& out,const SportCar& obj);
     friend std::istream& operator>>(std::istream& in, SportCar& obj);
 
