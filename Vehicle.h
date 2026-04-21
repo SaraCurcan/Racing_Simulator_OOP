@@ -5,19 +5,23 @@ class Vehicle {
 private:
     double price;
     double speed;
+    double maxSpeed;
 protected:
+    int level=1;
     std::string type;
     std::string brand;
-    double maxSpeed;
     virtual void accelerate(double speed)=0;
     virtual void slowDown(double speed)=0;
     virtual void ability()=0;
     virtual void upgrade()=0;
     void limitSpeed();
     void pressBreak();
+    void increaseMaxSpeed(double value);
+    double getSpeed() const;
+    void setSpeed(double speed);
 public:
     Vehicle();
-    Vehicle(std::string type, std::string brand, double maxSpeed, double price, double speed);
+    Vehicle(std::string type, std::string brand, double maxSpeed, double price, double speed, int level);
     Vehicle(const Vehicle& obj);
     Vehicle& operator=(const Vehicle& obj);
     virtual ~Vehicle();
@@ -26,5 +30,4 @@ public:
     std::string getType() const;
     std::string getBrand() const;
     double getMaxSpeed() const;
-
 };
