@@ -19,7 +19,7 @@ public:
     Vehicle& operator=(const Vehicle& obj);
     virtual ~Vehicle();
     void upgrade();
-    friend istream& operator>>(istream& in, Vehicle& obj);
-    friend ostream& operator<<(ostream& out, const Vehicle& obj);
+    friend std::istream& operator>>(std::istream& in, Vehicle& obj);
+    friend std::ostream& operator<<(std::ostream& out, const Vehicle& obj);
 
 };
