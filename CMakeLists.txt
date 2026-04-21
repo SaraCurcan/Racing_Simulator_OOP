@@ -6,4 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(VehicleSimulator
         main.cpp
         Vehicle.h
-        Vehicle.cpp)
+        Vehicle.cpp
+        Exceptions.h
+        SportCar.h
+        SportCar.cpp)

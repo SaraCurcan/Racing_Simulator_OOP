@@ -6,20 +6,24 @@ private:
     double price;
     double speed;
 protected:
-    std::string name;
+    std::string type;
     std::string brand;
     double maxSpeed;
     virtual void accelerate(double speed)=0;
     virtual void slowDown(double speed)=0;
-    void pressBreak(double speed);
+    virtual void ability()=0;
+    virtual void upgrade()=0;
+    void pressBreak();
 public:
     Vehicle();
-    Vehicle(std::string name, std::string brand, double maxSpeed, double price, double speed);
+    Vehicle(std::string type, std::string brand, double maxSpeed, double price, double speed);
     Vehicle(const Vehicle& obj);
     Vehicle& operator=(const Vehicle& obj);
     virtual ~Vehicle();
-    void upgrade();
     friend std::istream& operator>>(std::istream& in, Vehicle& obj);
     friend std::ostream& operator<<(std::ostream& out, const Vehicle& obj);
+    std::string getType() const;
+    std::string getBrand() const;
+    double getMaxSpeed() const;
 
 };

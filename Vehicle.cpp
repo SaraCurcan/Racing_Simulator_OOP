@@ -33,10 +33,6 @@ void Vehicle::pressBreak() {
     speed=0;
 }
 
-void Vehicle::upgrade() {
-    maxSpeed+=15;
-}
-
 std::string Vehicle::getType() const {return type;}
 std::string Vehicle::getBrand() const {return brand;}
 double Vehicle::getMaxSpeed() const {return maxSpeed;}
