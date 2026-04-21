@@ -3,4 +3,7 @@ project(VehicleSimulator)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(VehicleSimulator main.cpp)
+add_executable(VehicleSimulator
+        main.cpp
+        Vehicle.h
+        Vehicle.cpp)
