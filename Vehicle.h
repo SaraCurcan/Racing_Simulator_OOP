@@ -19,6 +19,8 @@ protected:
     void increaseMaxSpeed(double value);
     double getSpeed() const;
     void setSpeed(double speed);
+    double getAcceleration() const;
+    void setAcceleration(double acceleration);
 public:
     Vehicle();
     Vehicle(std::string type, std::string brand, double maxSpeed, double price, double speed, int level, double acceleration);

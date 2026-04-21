@@ -14,12 +14,13 @@ public:
     SportCar(const SportCar& obj);
     SportCar& operator=(const SportCar& obj);
     ~SportCar();
-    void accelerate(double speed) override;
     void applyUpgrade() override;
+    void accelerate(double speed) override;
     void slowDown(double speed) override;
     void ability() override;
     void drift();
     int getAvailableNitro() const;
+    void setAvailableNitro(int availableNitro);
     friend std::ostream& operator<<(std::ostream& out,const SportCar& obj);
     friend std::istream& operator>>(std::istream& in, SportCar& obj);
 

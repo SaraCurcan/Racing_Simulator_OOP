@@ -66,7 +66,9 @@ std::istream& operator>>(std::istream& in , Vehicle& obj) {
 
 void Vehicle::limitSpeed() {
     if (speed>maxSpeed)
-    speed=maxSpeed;
+        speed=maxSpeed;
+    if (speed<0)
+        speed=0;
 }
 
 void Vehicle::increaseMaxSpeed(double value) {
@@ -78,4 +80,9 @@ double Vehicle::getSpeed() const {return speed;}
 void Vehicle::setSpeed(double speed) {
     this->speed=speed;
     limitSpeed();
+}
+double Vehicle::getAcceleration () const { return acceleration; }
+
+void Vehicle::setAcceleration(double acceleration) {
+    this->acceleration=acceleration;
 }
