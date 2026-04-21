@@ -3,8 +3,8 @@
 #include<iostream>
 #include<string>
 SportCar::SportCar():Vehicle(), availableNitro(0){}
-SportCar::SportCar(std::string type, std::string brand, double maxSpeed, double price, double speed, int availableNitro)
-    :Vehicle(type,brand,maxSpeed,price,speed,1),availableNitro(availableNitro){}
+SportCar::SportCar(std::string type, std::string brand, double maxSpeed, double price, double speed,int availableNitro)
+    :Vehicle(type,brand,maxSpeed,price,speed,1,7.0),availableNitro(availableNitro){}
 
 SportCar::SportCar(const SportCar &obj):Vehicle(obj), availableNitro(obj.availableNitro){}
 SportCar& SportCar::operator=(const SportCar& obj) {
@@ -15,3 +15,4 @@ SportCar& SportCar::operator=(const SportCar& obj) {
     return *this;
 }
 SportCar::~SportCar(){}
+

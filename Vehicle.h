@@ -10,10 +10,10 @@ protected:
     int level=1;
     std::string type;
     std::string brand;
+    double acceleration;
     virtual void accelerate(double speed)=0;
     virtual void slowDown(double speed)=0;
     virtual void ability()=0;
-    virtual void upgrade()=0;
     void limitSpeed();
     void pressBreak();
     void increaseMaxSpeed(double value);
@@ -21,7 +21,7 @@ protected:
     void setSpeed(double speed);
 public:
     Vehicle();
-    Vehicle(std::string type, std::string brand, double maxSpeed, double price, double speed, int level);
+    Vehicle(std::string type, std::string brand, double maxSpeed, double price, double speed, int level, double acceleration);
     Vehicle(const Vehicle& obj);
     Vehicle& operator=(const Vehicle& obj);
     virtual ~Vehicle();
@@ -30,4 +30,5 @@ public:
     std::string getType() const;
     std::string getBrand() const;
     double getMaxSpeed() const;
+    virtual void applyUpgrade()=0;
 };

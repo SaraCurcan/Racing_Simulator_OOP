@@ -10,11 +10,12 @@ private:
     void applyNitro();
 public:
     SportCar();
-    SportCar(std::string type, std::string brand, double maxSpeed, double price, double speed, int availableNitro);
+    SportCar(std::string type, std::string brand, double maxSpeed, double price, double speed,int availableNitro);
     SportCar(const SportCar& obj);
     SportCar& operator=(const SportCar& obj);
+    ~SportCar();
     void accelerate(double speed) override;
-    void upgrade() override;
+    void applyUpgrade() override;
     void slowDown(double speed) override;
     void ability() override;
     void drift();

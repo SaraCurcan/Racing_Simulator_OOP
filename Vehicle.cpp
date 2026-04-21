@@ -2,12 +2,12 @@
 #include "Exceptions.h"
 #include<iostream>
 #include<string>
-Vehicle::Vehicle():type(""),brand(""),speed(0.0),price(0.0),maxSpeed(0.0),level(1){}
-Vehicle::Vehicle(std::string type, std::string brand, double maxSpeed, double price, double speed, int level) {
+Vehicle::Vehicle():type(""),brand(""),speed(0.0),price(0.0),maxSpeed(0.0),level(1), acceleration(0.0){}
+Vehicle::Vehicle(std::string type, std::string brand, double maxSpeed, double price, double speed, int level,double acceleration) {
     if (type.empty() || brand.empty()) {
         throw InvalidNameException();
     }
-    if (maxSpeed<=0 || speed<0 || price<0) {
+    if (maxSpeed<=0 || speed<0 || price<0 ||  acceleration<0) {
         throw InvalidNumber();
     }
     this->type=type;
@@ -19,8 +19,9 @@ Vehicle::Vehicle(std::string type, std::string brand, double maxSpeed, double pr
         this->level=1;
     else
         this->level=level;
+    this->acceleration=acceleration;
 }
-Vehicle::Vehicle(const Vehicle& obj):type(obj.type), brand(obj.brand),maxSpeed(obj.maxSpeed),speed(obj.speed),price(obj.price),level(obj.level){}
+Vehicle::Vehicle(const Vehicle& obj):type(obj.type), brand(obj.brand),maxSpeed(obj.maxSpeed),speed(obj.speed),price(obj.price),level(obj.level), acceleration(obj.acceleration){}
 Vehicle& Vehicle::operator=(const Vehicle& obj) {
     if (this!=&obj) {
         this->type=obj.type;
@@ -29,6 +30,7 @@ Vehicle& Vehicle::operator=(const Vehicle& obj) {
         this->speed=obj.speed;
         this->price=obj.price;
         this->level=obj.level;
+        this->acceleration=obj.acceleration;
     }
     return *this;
 }
