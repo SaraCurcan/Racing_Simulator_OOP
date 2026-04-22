@@ -14,7 +14,7 @@ public:
     Motorcycle(std::string brand, std::string type, double MaxSpeed, double price, double speed,double agility);
     Motorcycle(const Motorcycle& obj);
     Motorcycle& operator=(const Motorcycle& obj);
-    ~Motorcycle();
+    virtual ~Motorcycle()=default;
     void ability() override;
     void applyUpgrade() override;
     int getLaneSplitUses() const;

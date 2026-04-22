@@ -117,4 +117,16 @@ void Vehicle::upgradetMaxSpeed(double value) {
     maxSpeed+=value;
 }
 
+bool Vehicle::isMaxLevel() const {
+        if (level >= 10) {
+            std::cout << brand << " " << type << " reached max level\n";
+            return true;
+        }
+        return false;
+}
 
+double Vehicle::getPrice() const {return price;}
+void Vehicle::setPrice(double value) {
+    if (value<0) throw InvalidNumber("Enter a positive price\n");
+    price=value;
+}

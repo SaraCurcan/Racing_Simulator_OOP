@@ -12,7 +12,7 @@ public:
     Truck(std::string brand, std::string type, double maxSpeed, double price, double speed,double stability);
     Truck(const Truck& obj);
     Truck& operator=(const Truck& obj);
-    ~Truck();
+    virtual ~Truck()=default;
     double getStability() const;
     void setStability(double value);
     int getStabilityUses() const;

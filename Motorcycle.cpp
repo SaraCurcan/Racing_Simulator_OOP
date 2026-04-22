@@ -14,7 +14,6 @@ Motorcycle& Motorcycle::operator=(const Motorcycle& obj) {
     }
     return *this;
 }
-Motorcycle::~Motorcycle(){}
 int Motorcycle::getLaneSplitUses() const {return laneSplitUses;}
 void Motorcycle::addLaneSplitUses(int value) {
     if (value<0)
@@ -23,10 +22,7 @@ void Motorcycle::addLaneSplitUses(int value) {
 }
 
 void Motorcycle::applyUpgrade() {
-    if (level>=10) {
-        std::cout<<brand<<" "<<type<<" reached max level\n";
-        return;
-    }
+    if (isMaxLevel())return;
     level+=1;
     acceleration+=(0.05*level);
     agility+=0.1;

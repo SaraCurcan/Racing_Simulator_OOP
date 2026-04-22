@@ -14,8 +14,6 @@ Truck& Truck::operator=(const Truck& obj) {
     }
     return *this;
 }
-Truck::~Truck(){}
-
 double Truck::getStability() const { return stability;}
 void Truck::setStability(double value) {
     if (value<0) throw InvalidNumber("Enter a positive number\n");

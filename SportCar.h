@@ -13,7 +13,7 @@ public:
     SportCar(std::string brand, std::string type, double maxSpeed, double price, double speed,int availableNitro);
     SportCar(const SportCar& obj);
     SportCar& operator=(const SportCar& obj);
-    ~SportCar();
+    virtual ~SportCar()=default;
     void applyUpgrade() override;
     void ability() override;
     void drift();

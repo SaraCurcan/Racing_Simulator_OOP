@@ -34,4 +34,7 @@ public:
     double getMaxSpeed() const;
     virtual void applyUpgrade()=0;
     void upgradetMaxSpeed(double value);
+    bool isMaxLevel() const;
+    double getPrice() const;
+    void setPrice(double value);
 };
