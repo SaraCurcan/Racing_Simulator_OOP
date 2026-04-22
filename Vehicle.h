@@ -20,7 +20,7 @@ protected:
     void setAcceleration(double acceleration);
 public:
     Vehicle();
-    Vehicle(std::string type, std::string brand, double maxSpeed, double price, double speed, int level, double acceleration);
+    Vehicle(std::string brand, std::string type, double maxSpeed, double price, double speed, int level, double acceleration);
     Vehicle(const Vehicle& obj);
     Vehicle& operator=(const Vehicle& obj);
     virtual ~Vehicle();

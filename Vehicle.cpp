@@ -3,7 +3,7 @@
 #include<iostream>
 #include<string>
 Vehicle::Vehicle():type(""),brand(""),speed(0.0),price(0.0),maxSpeed(0.0),level(1), acceleration(0.0){}
-Vehicle::Vehicle(std::string type, std::string brand, double maxSpeed, double price, double speed, int level,double acceleration) {
+Vehicle::Vehicle(std::string brand, std::string type, double maxSpeed, double price, double speed, int level,double acceleration) {
     if (type.empty() || brand.empty()) {
         throw InvalidNameException();
     }

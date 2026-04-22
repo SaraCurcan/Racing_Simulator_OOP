@@ -11,4 +11,6 @@ add_executable(VehicleSimulator
         SportCar.h
         SportCar.cpp
         Motorcycle.h
-        Motorcycle.cpp)
+        Motorcycle.cpp
+        Truck.h
+        Truck.cpp)

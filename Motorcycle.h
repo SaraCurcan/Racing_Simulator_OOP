@@ -11,7 +11,7 @@ private:
     void overTake();
 public:
     Motorcycle();
-    Motorcycle(std::string type, std::string brand, double MaxSpeed, double price, double speed);
+    Motorcycle(std::string brand, std::string type, double MaxSpeed, double price, double speed,double agility);
     Motorcycle(const Motorcycle& obj);
     Motorcycle& operator=(const Motorcycle& obj);
     ~Motorcycle();
