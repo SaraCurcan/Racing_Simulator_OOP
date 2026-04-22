@@ -33,4 +33,5 @@ public:
     std::string getBrand() const;
     double getMaxSpeed() const;
     virtual void applyUpgrade()=0;
+    void upgradetMaxSpeed(double value);
 };

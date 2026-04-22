@@ -7,6 +7,8 @@
 class Motorcycle:public Vehicle {
 private:
     static int laneSplitUses;
+    double agility;
+    void overTake();
 public:
     Motorcycle();
     Motorcycle(std::string type, std::string brand, double MaxSpeed, double price, double speed);
@@ -19,5 +21,5 @@ public:
     void addLaneSplitUses(int value);
     friend std::istream& operator>>(std::istream& in, Motorcycle& obj);
     friend std::ostream& operator<<(std::ostream& out, const Motorcycle& obj);
-
+    void setAgility(double value);
 };

@@ -19,8 +19,14 @@ SportCar::~SportCar(){}
 int SportCar::getAvailableNitro() const { return availableNitro; }
 
 void SportCar::applyUpgrade() {
+    if (level>=10) {
+        std::cout<<brand<<" "<<type<<" reached max level\n";
+        return;
+    }
+    upgradetMaxSpeed(30.0);
     level+=1;
-    acceleration+=0.1;
+    acceleration+=(0.06*level);
+    std::cout<<brand<<" "<<type<<" upgraded to level "<<level<<std::endl;
 }
 void SportCar::applyNitro() {
     if (availableNitro>0) {

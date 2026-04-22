@@ -102,3 +102,11 @@ void Vehicle::slowDown(double speed) {
     if (finalSpeed==0.0){ pressBreak(); }
     limitSpeed();
 }
+void Vehicle::upgradetMaxSpeed(double value) {
+    if (value<=0) {
+        throw InvalidNumber("Error: Upgrade value must be positive\n");
+    }
+    maxSpeed+=value;
+}
+
+
