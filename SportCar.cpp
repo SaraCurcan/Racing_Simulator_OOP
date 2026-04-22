@@ -35,9 +35,15 @@ void SportCar::ability() {
     applyNitro();
 }
 
+void SportCar::print(std::ostream &out) const {
+    out<<"Brand: "<<brand<<std::endl;
+    out<<"Type: "<<type<<std::endl;
+    out<<"Max Speed: "<<getMaxSpeed()<<std::endl;
+    out<<"Nitro: "<<availableNitro<<std::endl;
+}
+
 std::ostream& operator<<(std::ostream& out, const SportCar& obj) {
-    out<<(const Vehicle&)obj;
-    out<<"Nitro: "<<obj.getAvailableNitro()<<std::endl;
+    obj.print(out);
     return out;
 }
 

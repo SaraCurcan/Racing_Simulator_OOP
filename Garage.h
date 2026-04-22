@@ -6,7 +6,7 @@
 class Garage{
 private:
     double coins;
-    std::vector<Vehicle*> vehicule;
+    std::vector<Vehicle*> list;
 public:
     Garage();
     Garage(double coins, const std::vector<Vehicle*>& list);

@@ -21,4 +21,8 @@ public:
     void ability() override;
     friend std::ostream& operator<<(std::ostream& out, const Truck& obj);
     friend std::istream& operator>>(std::istream& in, Truck& obj);
+    void print(std::ostream& out)const override;
+    Vehicle* clone() const override {
+        return new Truck(*this);
+    };
 };

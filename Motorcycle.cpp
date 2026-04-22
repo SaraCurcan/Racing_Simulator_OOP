@@ -67,9 +67,15 @@ std::istream& operator>>(std::istream& in, Motorcycle& obj) {
     }
     return in;
 }
+void Motorcycle::print(std::ostream &out) const {
+    out<<"Brand: "<<brand<<std::endl;
+    out<<"Type: "<<type<<std::endl;
+    out<<"Max Speed: "<<getMaxSpeed()<<std::endl;
+    out<<"Nitro: "<<laneSplitUses<<std::endl;
+    out<<"Agility: "<<agility<<std::endl;
+}
+
 std::ostream& operator<<(std::ostream& out, const Motorcycle& obj) {
-    out<<(const Vehicle&)obj;
-    out<<"Overtakes: "<<obj.laneSplitUses<<std::endl;
-    out<<"Agility: "<<obj.agility<<std::endl;
+    obj.print(out);
     return out;
 }

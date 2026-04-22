@@ -47,11 +47,16 @@ void Truck::handling() {
 void Truck::ability() {
     handling();
 }
+void Truck::print(std::ostream &out) const {
+    out<<"Brand: "<<brand<<std::endl;
+    out<<"Type: "<<type<<std::endl;
+    out<<"Max Speed: "<<getMaxSpeed()<<std::endl;
+    out<<"Nitro: "<<stabilityUses<<std::endl;
+    out<<"Agility: "<<stability<<std::endl;
+}
 
 std::ostream& operator<<(std::ostream& out, const Truck& obj) {
-    out<<(const Vehicle&)obj;
-    out<<"Stability Uses: "<<obj.getStabilityUses()<<std::endl;
-    out<<"Stability: "<<obj.getStability()<<std::endl;
+    obj.print(out);
     return out;
 }
 std::istream& operator>>(std::istream& in, Truck& obj) {

@@ -21,4 +21,8 @@ public:
     friend std::ostream& operator<<(std::ostream& out,const SportCar& obj);
     friend std::istream& operator>>(std::istream& in, SportCar& obj);
     void addNitro(int value);
+    void print(std::ostream& out)const override;
+    Vehicle* clone() const override {
+        return new SportCar(*this);
+    };
 };

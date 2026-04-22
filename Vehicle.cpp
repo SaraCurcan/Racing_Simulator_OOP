@@ -48,6 +48,7 @@ std::ostream& operator<<(std::ostream& out, const Vehicle& obj) {
     out<<"Brand: "<<obj.getBrand()<<std::endl;
     out<<"Type: "<<obj.getType()<<std::endl;
     out<<"Max Speed: "<<obj.getMaxSpeed()<<std::endl;
+    obj.print(out);
     return out;
 }
 std::istream& operator>>(std::istream& in , Vehicle& obj) {
