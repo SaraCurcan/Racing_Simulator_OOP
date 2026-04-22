@@ -1,7 +1,7 @@
 #include "Truck.h"
 #include "Exceptions.h"
-#include "iostream"
-#include "string"
+#include <iostream>
+#include <string>
 int Truck::stabilityUses=0;
 Truck::Truck():Vehicle() {}
 Truck::Truck(std::string brand, std::string type, double maxSpeed, double price, double speed,double stability)
@@ -30,14 +30,24 @@ void Truck::setStabilityUses(int value) {
 }
 
 void Truck::applyUpgrade() {
-    if (level>=10) {
-        std::cout<<brand<<" "<<type<<" reached max level\n";
-        return;
-    }
+    if (isMaxLevel())return;
     level+=1;
     acceleration+=(0.05*level);
     stability+=0.1;
     std::cout<<brand<<" "<<type<<" upgraded to level "<<level<<std::endl;
+}
+void Truck::handling() {
+    if (stabilityUses<1) {
+        std::cout<<"No more power available\n";
+        return;
+    }
+    acceleration*=2;
+    stabilityUses--;
+    std::cout<<"Your acceleration power increased with "<<acceleration*2<<std::endl;
+}
+
+void Truck::ability() {
+    handling();
 }
 
 std::ostream& operator<<(std::ostream& out, const Truck& obj) {
