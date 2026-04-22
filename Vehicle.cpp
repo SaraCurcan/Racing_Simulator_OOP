@@ -51,14 +51,22 @@ std::ostream& operator<<(std::ostream& out, const Vehicle& obj) {
     return out;
 }
 std::istream& operator>>(std::istream& in , Vehicle& obj) {
-    std::cout<<"Brand: ";
+    std::cout<<"Brand: \n";
     getline(in,obj.brand);
     if (obj.brand.empty()) throw InvalidNameException();
-    std::cout<<"Type: ";
+    std::cout<<"Type: \n";
     getline(in,obj.type);
-    if (obj.type.empty()) throw InvalidNameException();   std::cout<<"Max Speed: ";
-    in>>obj.maxSpeed;
-    if (obj.maxSpeed<=0) throw InvalidNumber();
+    if (obj.type.empty()) throw InvalidNameException();   std::cout<<"Max Speed: \n";
+    std::string input;
+    in>>input;
+    try {
+        double value=std::stod(input);
+        if (value<0) throw InvalidNumber("Enter a positive number\n");
+        obj.maxSpeed=value;
+    }
+    catch (const std::exception& e) {
+        throw InvalidNumber("Please enter a valid number\n");
+    }
     in.ignore();
     return in;
 }
