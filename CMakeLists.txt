@@ -9,4 +9,6 @@ add_executable(VehicleSimulator
         Vehicle.cpp
         Exceptions.h
         SportCar.h
-        SportCar.cpp)
+        SportCar.cpp
+        Motorcycle.h
+        Motorcycle.cpp)

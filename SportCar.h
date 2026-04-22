@@ -22,5 +22,5 @@ public:
     int getAvailableNitro() const;
     friend std::ostream& operator<<(std::ostream& out,const SportCar& obj);
     friend std::istream& operator>>(std::istream& in, SportCar& obj);
-
+    void addNitro(int value);
 };
