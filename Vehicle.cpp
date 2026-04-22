@@ -85,3 +85,20 @@ double Vehicle::getAcceleration () const { return acceleration; }
 void Vehicle::setAcceleration(double acceleration) {
     this->acceleration=acceleration;
 }
+void Vehicle::accelerate(double speed) {
+    if(speed<1) {
+        throw InvalidNumber("You should accelerate with a positive value\n");
+    }
+    setSpeed(getSpeed()+ speed*acceleration);
+    limitSpeed();
+}
+void Vehicle::slowDown(double speed) {
+    if(speed<0) {
+        throw InvalidNumber("enter a positive value\n");
+    }
+    double newSpeed=getSpeed()-speed*acceleration;
+    double finalSpeed=std::max(newSpeed,0.0);
+    setSpeed(finalSpeed);
+    if (finalSpeed==0.0){ pressBreak(); }
+    limitSpeed();
+}

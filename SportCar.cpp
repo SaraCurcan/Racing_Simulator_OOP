@@ -22,11 +22,6 @@ void SportCar::applyUpgrade() {
     level+=1;
     acceleration+=0.1;
 }
-
-void SportCar::accelerate(double speed) { setSpeed(getSpeed() + speed*acceleration); limitSpeed(); }
-
-void SportCar::slowDown(double speed) { setSpeed(getSpeed() - speed*acceleration); limitSpeed(); }
-
 void SportCar::applyNitro() {
     if (availableNitro>0) {
         std::cout<<"Nitro applied "<<std::endl;

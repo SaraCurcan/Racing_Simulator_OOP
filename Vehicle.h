@@ -11,8 +11,8 @@ protected:
     std::string type;
     std::string brand;
     double acceleration;
-    virtual void accelerate(double speed)=0;
-    virtual void slowDown(double speed)=0;
+    virtual void accelerate(double speed);
+    virtual void slowDown(double speed);
     virtual void ability()=0;
     void limitSpeed();
     void pressBreak();

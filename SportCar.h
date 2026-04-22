@@ -15,8 +15,6 @@ public:
     SportCar& operator=(const SportCar& obj);
     ~SportCar();
     void applyUpgrade() override;
-    void accelerate(double speed) override;
-    void slowDown(double speed) override;
     void ability() override;
     void drift();
     int getAvailableNitro() const;

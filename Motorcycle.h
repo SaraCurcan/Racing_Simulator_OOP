@@ -13,8 +13,6 @@ public:
     Motorcycle(const Motorcycle& obj);
     Motorcycle& operator=(const Motorcycle& obj);
     ~Motorcycle();
-    void accelerate(double speed) override;
-    void slowDown(double speed) override;
     void ability() override;
     void applyUpgrade() override;
     int getLaneSplitUses() const;
