@@ -37,6 +37,6 @@ public:
     bool isMaxLevel() const;
     double getPrice() const;
     void setPrice(double value);
-    virtual void print(std::ostream& out) const =0;
+    virtual void print(std::ostream& out) const;
     virtual Vehicle* clone() const =0;
 };

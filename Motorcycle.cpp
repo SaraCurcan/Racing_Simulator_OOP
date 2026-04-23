@@ -10,7 +10,7 @@ Motorcycle::Motorcycle(const Motorcycle &obj):Vehicle(obj),agility((obj.agility)
 Motorcycle& Motorcycle::operator=(const Motorcycle& obj) {
     if (this!=&obj) {
         Vehicle::operator=(obj);
-        this->agility=agility;
+        this->agility=obj.agility;
     }
     return *this;
 }
@@ -51,27 +51,12 @@ void Motorcycle::setAgility(double value) {
 }
 
 std::istream& operator>>(std::istream& in, Motorcycle& obj) {
-    in>>(Vehicle&)obj;
-    std::cout<<"Agility value: ";
-    std::string input;
-    in>>input;
-    try {
-        double value=std::stod(input);
-        if (value<0) {
-            throw InvalidNumber("Enter a positive number\n");
-        }
-        obj.setAgility(value);
-    }
-    catch (const std::exception& e) {
-        throw InvalidNumber("Please enter a valid number\n");
-    }
+    in>>static_cast<Vehicle&>(obj);
+    obj.setAgility(0.1);
     return in;
 }
 void Motorcycle::print(std::ostream &out) const {
-    out<<"Brand: "<<brand<<std::endl;
-    out<<"Type: "<<type<<std::endl;
-    out<<"Max Speed: "<<getMaxSpeed()<<std::endl;
-    out<<"Nitro: "<<laneSplitUses<<std::endl;
+    Vehicle::print(out);
     out<<"Agility: "<<agility<<std::endl;
 }
 

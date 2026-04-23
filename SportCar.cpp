@@ -4,7 +4,7 @@
 #include<string>
 int SportCar::availableNitro=0;
 SportCar::SportCar():Vehicle(){}
-SportCar::SportCar(std::string brand, std::string type, double maxSpeed, double price, double speed,int availableNitro)
+SportCar::SportCar(std::string brand, std::string type, double maxSpeed, double price, double speed)
     :Vehicle(brand,type,maxSpeed,price,speed,1,0.4){}
 
 SportCar::SportCar(const SportCar &obj):Vehicle(obj){}
@@ -36,9 +36,7 @@ void SportCar::ability() {
 }
 
 void SportCar::print(std::ostream &out) const {
-    out<<"Brand: "<<brand<<std::endl;
-    out<<"Type: "<<type<<std::endl;
-    out<<"Max Speed: "<<getMaxSpeed()<<std::endl;
+    Vehicle::print(out);
     out<<"Nitro: "<<availableNitro<<std::endl;
 }
 
@@ -48,7 +46,7 @@ std::ostream& operator<<(std::ostream& out, const SportCar& obj) {
 }
 
 std::istream& operator>>(std::istream& in, SportCar& obj) {
-    in>>(Vehicle&)obj;
+    in>>static_cast<Vehicle&>(obj);
     return in;
 }
 

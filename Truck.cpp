@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 int Truck::stabilityUses=0;
-Truck::Truck():Vehicle() {}
+Truck::Truck():Vehicle(),stability((0.0)) {}
 Truck::Truck(std::string brand, std::string type, double maxSpeed, double price, double speed,double stability)
 :Vehicle(brand,type,maxSpeed,price,speed,1,0.3), stability(stability){};
 Truck::Truck(const Truck& obj):Vehicle(obj),stability((obj.stability)){}
@@ -48,11 +48,8 @@ void Truck::ability() {
     handling();
 }
 void Truck::print(std::ostream &out) const {
-    out<<"Brand: "<<brand<<std::endl;
-    out<<"Type: "<<type<<std::endl;
-    out<<"Max Speed: "<<getMaxSpeed()<<std::endl;
-    out<<"Nitro: "<<stabilityUses<<std::endl;
-    out<<"Agility: "<<stability<<std::endl;
+    Vehicle::print(out);
+    out<<"Stability: "<<stability<<std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, const Truck& obj) {
@@ -60,19 +57,7 @@ std::ostream& operator<<(std::ostream& out, const Truck& obj) {
     return out;
 }
 std::istream& operator>>(std::istream& in, Truck& obj) {
-    in>>(Vehicle&)obj;
-    std::cout<<"Stability value: ";
-    std::string input;
-    in>>input;
-    try {
-        double value=std::stod(input);
-        if (value<0) {
-            throw InvalidNumber("Enter a positive number\n");
-        }
-        obj.setStability(value);
-    }
-    catch (const std::exception& e) {
-        throw InvalidNumber("Please enter a valid number\n");
-    }
+    in>>static_cast<Vehicle&>(obj);
+    obj.setStability(0.0);
     return in;
 }

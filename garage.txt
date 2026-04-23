@@ -1,0 +1,16 @@
+3
+SportCar
+BMW
+M3
+200
+2000
+Motorcycle
+Yamaha
+YZF-R7
+210
+2300
+Truck
+Volvo
+C303
+160
+1700

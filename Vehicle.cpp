@@ -52,22 +52,21 @@ std::ostream& operator<<(std::ostream& out, const Vehicle& obj) {
     return out;
 }
 std::istream& operator>>(std::istream& in , Vehicle& obj) {
-    std::cout<<"Brand: \n";
     getline(in,obj.brand);
     if (obj.brand.empty()) throw InvalidNameException();
-    std::cout<<"Type: \n";
     getline(in,obj.type);
-    if (obj.type.empty()) throw InvalidNameException();   std::cout<<"Max Speed: \n";
+    if (obj.type.empty()) throw InvalidNameException();
     std::string input;
     in>>input;
     try {
-        double value=std::stod(input);
-        if (value<0) throw InvalidNumber("Enter a positive number\n");
-        obj.maxSpeed=value;
+        obj.maxSpeed=std::stod(input);
+        if (obj.maxSpeed<0) throw InvalidNumber();
     }
     catch (const std::exception& e) {
-        throw InvalidNumber("Please enter a valid number\n");
+        throw MyInvalidArgument("A number is expected\n");
     }
+    in>>obj.price;
+    if (obj.price<0) throw InvalidNumber();
     in.ignore();
     return in;
 }
@@ -103,7 +102,7 @@ void Vehicle::accelerate(double speed) {
 }
 void Vehicle::slowDown(double speed) {
     if(speed<0) {
-        throw InvalidNumber("enter a positive value\n");
+        throw InvalidNumber();
     }
     double newSpeed=getSpeed()-speed*acceleration;
     double finalSpeed=std::max(newSpeed,0.0);
@@ -130,4 +129,6 @@ double Vehicle::getPrice() const {return price;}
 void Vehicle::setPrice(double value) {
     if (value<0) throw InvalidNumber("Enter a positive price\n");
     price=value;
+}
+void Vehicle::print(std::ostream& out) const {
 }

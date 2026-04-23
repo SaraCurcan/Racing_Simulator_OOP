@@ -13,7 +13,11 @@ public:
     Garage(const Garage& obj);
     Garage& operator=(const Garage& obj);
     ~Garage();
-    void Upgrade();
-    void addToGarage(Vehicle* v);
+    void Upgrade(int index);
+    void addVehicle(Vehicle* v);
     void ShowOwnedVehicles() const;
+    double getCoins() const;
+    void setcoins(double value);
+    friend std::ostream& operator<<(std::ostream& out, const Garage& obj);
+    friend std::istream& operator>>(std::istream& in, Garage& obj);
 };
