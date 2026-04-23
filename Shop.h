@@ -11,7 +11,7 @@ public:
     Shop& operator=(const Shop& obj);
     ~Shop();
     void showCatalog() const;
-    void buyVehicle();
-    friend std::ostream& operator<<(std::ostream& out,const Shop& obj);
-    friend std::istream& operator>>(std::istream& in, Shop& obj);
+    // void buyVehicle();
+    // friend std::ostream& operator<<(std::ostream& out,const Shop& obj);
+    // friend std::istream& operator>>(std::istream& in, Shop& obj);
 };

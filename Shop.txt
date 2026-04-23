@@ -1,0 +1,9 @@
+Sport_Car Ferrari SF90 400 8000
+Sport_Car Porsche 911 270 5500
+Sport_Car McLaren Senna 335 4500
+Motorcycle Ducati Panigale 300 6500
+Motorcycle Kawasaki H2R 270 5500
+Motorcycle BMW S1000RR 280 6000
+Truck Ford Raptor 230 2400
+Truck Mercedes G63 280 3800
+Truck Land Rover 240 2600
