@@ -1,6 +1,6 @@
-Sport_Car Ferrari SF90 400 8000
-Sport_Car Porsche 911 270 5500
-Sport_Car McLaren Senna 335 4500
+SportCar Ferrari SF90 400 8000
+SportCar Porsche 911 270 5500
+SportCar McLaren Senna 335 4500
 Motorcycle Ducati Panigale 300 6500
 Motorcycle Kawasaki H2R 270 5500
 Motorcycle BMW S1000RR 280 6000

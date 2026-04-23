@@ -4,8 +4,8 @@
 int Motorcycle::laneSplitUses=0;
 
 Motorcycle::Motorcycle():Vehicle() {}
-Motorcycle::Motorcycle(std::string brand, std::string type, double maxSpeed, double price, double speed,double agility)
-:Vehicle(brand,type ,maxSpeed,price,speed,1,0.3),agility((agility)){}
+Motorcycle::Motorcycle(std::string brand, std::string type, double maxSpeed, double price,double agility)
+:Vehicle(brand,type ,maxSpeed,price,0.0,1,0.3),agility((agility)){}
 Motorcycle::Motorcycle(const Motorcycle &obj):Vehicle(obj),agility((obj.agility)) {}
 Motorcycle& Motorcycle::operator=(const Motorcycle& obj) {
     if (this!=&obj) {

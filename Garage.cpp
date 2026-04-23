@@ -86,3 +86,11 @@ std::istream& operator>>(std::istream& in, Garage& obj) {
     }
     return in;
 }
+
+bool Garage::checkVehicle(const std::string &brand, const std::string &type) {
+    for (const Vehicle* v: list) {
+        if (v->getBrand()==brand && v->getType()==type)
+            return true;
+    }
+    return false;
+}

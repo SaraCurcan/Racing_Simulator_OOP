@@ -10,7 +10,7 @@ private:
     void applyNitro();
 public:
     SportCar();
-    SportCar(std::string brand, std::string type, double maxSpeed, double price, double speed);
+    SportCar(std::string brand, std::string type, double maxSpeed, double price);
     SportCar(const SportCar& obj);
     SportCar& operator=(const SportCar& obj);
     virtual ~SportCar()=default;

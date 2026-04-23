@@ -9,7 +9,7 @@ private:
     void handling();
 public:
     Truck();
-    Truck(std::string brand, std::string type, double maxSpeed, double price, double speed,double stability);
+    Truck(std::string brand, std::string type, double maxSpeed, double price, double stability);
     Truck(const Truck& obj);
     Truck& operator=(const Truck& obj);
     virtual ~Truck()=default;
