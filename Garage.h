@@ -23,4 +23,5 @@ public:
     bool checkVehicle(const std::string& brand, const std::string &type);
     friend std::ostream& operator<<(std::ostream& out, const Garage& obj);
     friend std::istream& operator>>(std::istream& in, Garage& obj);
+    void loadDefaultVehicles(const std::string& filename);
 };

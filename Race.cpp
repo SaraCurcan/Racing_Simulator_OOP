@@ -133,7 +133,6 @@ void Race::racing() {
     generateWeather();
     while (true) {
         if (playerDistance>=DistanceUntilFinish || opponentDistance>=DistanceUntilFinish) break;
-        system("clear");
         printRace(playerDistance,opponentDistance);
         std::cout<<"1. Accelerate\n";
         std::cout<<"2. SlowDown\n";
@@ -144,18 +143,18 @@ void Race::racing() {
         if (choice!="1" && choice!="2" && choice!="3" && choice!="4")
             {std::cout<<"Invalid choice";
             continue;}
-            else if (choice=="1") {
-                playerVehicle->accelerateAction();
-            }
-            else if (choice=="2") {
-                playerVehicle->slowDownAction();
-            }
-            else if (choice=="3") {
-                playerVehicle->useAbility();
-            }
-            else if (choice=="4") {
-                playerVehicle->pressBreakAction();
-            }
+        if (choice=="1") {
+            playerVehicle->accelerateAction();
+        }
+        else if (choice=="2") {
+            playerVehicle->slowDownAction();
+        }
+        else if (choice=="3") {
+            playerVehicle->useAbility();
+        }
+        else if (choice=="4") {
+            playerVehicle->pressBreakAction();
+        }
         int number=rand()%10;
         double difference=opponentDistance-playerDistance;
         if (difference>20) {
@@ -173,15 +172,14 @@ void Race::racing() {
             else
                 opponent->slowDownAction();
         }
-            double playerSpeed=playerVehicle->getSpeed();
-            double opponentSpeed=opponent->getSpeed();
+            double playerSpeed=playerVehicle->getSpeed()+playerVehicle->getAcceleration();
+            double opponentSpeed=opponent->getSpeed()+opponent->getAcceleration();
             playerSpeed=playerSpeed*weatherBehavior(playerVehicle);
             opponentSpeed=opponentSpeed*weatherBehavior(opponent);
             playerDistance+=playerSpeed;
             opponentDistance+=opponentSpeed;
 
     }
-    system("clear");
     printRace(playerDistance,opponentDistance);
     if (playerDistance>=DistanceUntilFinish) {
         std::cout<<"YOU WON!\n";

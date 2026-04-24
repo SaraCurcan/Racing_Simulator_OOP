@@ -7,6 +7,7 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<fstream>
 Garage::Garage():coins(0.0),list{} {}
 Garage::Garage(double coins, const std::vector<Vehicle*>& list):coins(coins) {
     for(Vehicle* v : list) {
@@ -36,13 +37,19 @@ Garage::~Garage(){
     list.clear();
 }
 void Garage::Upgrade(int index) {
-    Vehicle* v=list[index];
-    v->applyUpgrade();
+    if (coins>=2000) {
+        Vehicle* v=list[index];
+        v->applyUpgrade();
+    }
+    else std::cout<<"Not enough money\n";
 }
 
 void Garage::ShowOwnedVehicles() const {
-    for (Vehicle* v : list)
-        std::cout<<*v<<std::endl;
+    int i=1;
+    for (Vehicle* v : list) {
+        std::cout<<i<<". "<<*v<<std::endl;
+        i++;
+    }
 }
 
 void Garage::addVehicle(Vehicle *v) {
@@ -102,4 +109,32 @@ Vehicle* Garage::getVehicle(int index) const {
 
 int Garage::getSize() const {
     return list.size();
+}
+
+void Garage::loadDefaultVehicles(const std::string& filename) {
+    if (!this->list.empty()) {
+        return;
+    }
+    std::ifstream file(filename);
+    if (!file.is_open()) {
+        std::cerr<<"Couldn't open the file\n";
+        return;
+    }
+    std::string vehicleType,brand,type;
+    double maxSpeed,price;
+    while (file>>vehicleType>>brand>>type>>maxSpeed>>price) {
+        Vehicle* v=nullptr;
+        if (vehicleType=="Sportcar")
+            v=new SportCar(brand,type,maxSpeed,price);
+        else if (vehicleType=="Motorcycle")
+            v=new Motorcycle(brand,type,maxSpeed,price,0.5);
+        else if (vehicleType=="Truck")
+            v=new Truck(brand,type,maxSpeed,price,0.5);
+        if (v!=nullptr) {
+            addVehicle(v);
+            delete v;
+        }
+
+    }
+    file.close();
 }

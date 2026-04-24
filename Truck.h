@@ -16,7 +16,7 @@ public:
     double getStability() const;
     void setStability(double value);
     int getStabilityUses() const;
-    void setStabilityUses(int value);
+    void addStabilityUses(int value);
     void applyUpgrade() override;
     void ability() override;
     friend std::ostream& operator<<(std::ostream& out, const Truck& obj);

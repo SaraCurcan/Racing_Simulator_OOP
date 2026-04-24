@@ -27,7 +27,9 @@ void Shop::showCatalog(Garage& garage){
     int index=0;
     std::cout<<std::endl;
     std::cout<<"                       VEHICLES SHOP                       \n";
+    std::cout<<"Your sold: "<<garage.getCoins()<<std::endl;
     std::cout<<std::endl;
+
     while (file>>vehicleType>>brand>>type>>maxSpeed>>price) {
 
         std::cout<<++index<<" Vehicle Type: "<<vehicleType<<" "
@@ -80,6 +82,7 @@ void Shop::buyVehicle(int index, Garage &garage) {
                 garage.addVehicle(v);
                 delete v;
                 std::cout<<"Congrats! You purchased "<<brand<<" "<<type<<std::endl;
+                std::cout<<"New sold "<<garage.getCoins()<<std::endl;
             }
             return;
         }

@@ -25,8 +25,10 @@ void Motorcycle::applyUpgrade() {
     if (isMaxLevel())return;
     level+=1;
     acceleration+=(0.08*level);
-    agility+=0.1;
+    agility+=0.4;
+    laneSplitUses+=2;
     std::cout<<brand<<" "<<type<<" upgraded to level "<<level<<std::endl;
+    std::cout<<"Max Speed: "<<getMaxSpeed()<<" acceleration power: "<<acceleration<<" agility: "<<agility<<std::endl;
 }
 
 void Motorcycle::overTake() {

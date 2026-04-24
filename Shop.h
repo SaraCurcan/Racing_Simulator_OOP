@@ -1,5 +1,8 @@
 #pragma once
 #include "Garage.h"
+#include "SportCar.h"
+#include "Truck.h"
+#include "Motorcycle.h"
 #include <iostream>
 #include <string>
 class Shop {

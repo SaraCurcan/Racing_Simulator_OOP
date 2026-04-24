@@ -21,7 +21,9 @@ void SportCar::applyUpgrade() {
     upgradetMaxSpeed(30.0);
     level+=1;
     acceleration+=(0.06*level);
+    availableNitro+=2;
     std::cout<<brand<<" "<<type<<" upgraded to level "<<level<<std::endl;
+    std::cout<<"Max Speed: "<<getMaxSpeed()<<" acceleration power: "<<acceleration<<std::endl;
 }
 void SportCar::applyNitro() {
     if (availableNitro>0) {
@@ -55,3 +57,4 @@ void SportCar::addNitro(int value) {
         throw InvalidNumber("Error: Nitro must be a positive number\n");
     availableNitro+=value;
 }
+

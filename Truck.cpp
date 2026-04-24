@@ -22,17 +22,19 @@ void Truck::setStability(double value) {
 
 int Truck::getStabilityUses() const {return stabilityUses;}
 
-void Truck::setStabilityUses(int value) {
+void Truck::addStabilityUses(int value) {
     if (value<0) throw InvalidNumber("Enter a positive number\n");
-    stabilityUses=value;
+    stabilityUses+=value;
 }
 
 void Truck::applyUpgrade() {
     if (isMaxLevel())return;
     level+=1;
     acceleration+=(0.05*level);
-    stability+=0.1;
+    stability+=0.4;
+    stabilityUses+=2;
     std::cout<<brand<<" "<<type<<" upgraded to level "<<level<<std::endl;
+    std::cout<<"Max Speed: "<<getMaxSpeed()<<" acceleration power: "<<acceleration<<" stability: "<<stability<<std::endl;
 }
 void Truck::handling() {
     if (stabilityUses<1) {

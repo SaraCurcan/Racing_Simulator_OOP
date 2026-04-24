@@ -1,4 +1,3 @@
-3
-SportCar BMW M3 300 2000
+Sportcar BMW M3 300 2000
 Motorcycle Yamaha YZF-R7 210 2300
 Truck Volvo C303 160 1700
