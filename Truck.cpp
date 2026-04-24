@@ -5,7 +5,7 @@
 int Truck::stabilityUses=0;
 Truck::Truck():Vehicle(),stability((0.0)) {}
 Truck::Truck(std::string brand, std::string type, double maxSpeed, double price, double stability)
-:Vehicle(brand,type,maxSpeed,price,0.0,1,0.3), stability(stability){};
+:Vehicle(brand,type,maxSpeed,price,0.0,1,2.1), stability(stability){};
 Truck::Truck(const Truck& obj):Vehicle(obj),stability((obj.stability)){}
 Truck& Truck::operator=(const Truck& obj) {
     if (this!=&obj) {

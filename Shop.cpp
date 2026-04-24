@@ -86,3 +86,4 @@ void Shop::buyVehicle(int index, Garage &garage) {
         currentIndex++;
     }
 }
+

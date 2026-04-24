@@ -1,0 +1,7 @@
+rainy 0.8
+snowy 0.5
+ice 0.4
+opponent_min_speed 0.5
+opponent_max_speed 0.7
+ice 20
+finish 1000

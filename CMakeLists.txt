@@ -18,4 +18,6 @@ add_executable(VehicleSimulator
         Garage.cpp
         Shop.h
         Shop.cpp
+        Race.h
+        Race.cpp
 )

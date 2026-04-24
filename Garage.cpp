@@ -94,3 +94,12 @@ bool Garage::checkVehicle(const std::string &brand, const std::string &type) {
     }
     return false;
 }
+Vehicle* Garage::getVehicle(int index) const {
+    if (index<0||index>=list.size())
+        throw MyInvalidArgument("Invalid vehicle index\n");
+    return list[index];
+}
+
+int Garage::getSize() const {
+    return list.size();
+}

@@ -39,4 +39,8 @@ public:
     void setPrice(double value);
     virtual void print(std::ostream& out) const;
     virtual Vehicle* clone() const =0;
+    void accelerateAction();
+    void slowDownAction();
+    void useAbility();
+    void pressBreakAction();
 };

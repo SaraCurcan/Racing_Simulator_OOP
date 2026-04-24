@@ -5,7 +5,7 @@ int Motorcycle::laneSplitUses=0;
 
 Motorcycle::Motorcycle():Vehicle() {}
 Motorcycle::Motorcycle(std::string brand, std::string type, double maxSpeed, double price,double agility)
-:Vehicle(brand,type ,maxSpeed,price,0.0,1,0.3),agility((agility)){}
+:Vehicle(brand,type ,maxSpeed,price,0.0,1,3.2),agility((agility)){}
 Motorcycle::Motorcycle(const Motorcycle &obj):Vehicle(obj),agility((obj.agility)) {}
 Motorcycle& Motorcycle::operator=(const Motorcycle& obj) {
     if (this!=&obj) {
@@ -24,7 +24,7 @@ void Motorcycle::addLaneSplitUses(int value) {
 void Motorcycle::applyUpgrade() {
     if (isMaxLevel())return;
     level+=1;
-    acceleration+=(0.05*level);
+    acceleration+=(0.08*level);
     agility+=0.1;
     std::cout<<brand<<" "<<type<<" upgraded to level "<<level<<std::endl;
 }

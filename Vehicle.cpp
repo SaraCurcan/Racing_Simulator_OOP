@@ -94,7 +94,7 @@ void Vehicle::setAcceleration(double acceleration) {
     this->acceleration=acceleration;
 }
 void Vehicle::accelerate(double speed) {
-    if(speed<1) {
+    if(speed<0) {
         throw InvalidNumber("You should accelerate with a positive value\n");
     }
     setSpeed(getSpeed()+ speed*acceleration);
@@ -130,5 +130,9 @@ void Vehicle::setPrice(double value) {
     if (value<0) throw InvalidNumber("Enter a positive price\n");
     price=value;
 }
-void Vehicle::print(std::ostream& out) const {
-}
+void Vehicle::print(std::ostream& out) const {}
+
+void Vehicle::accelerateAction() { accelerate(acceleration); }
+void Vehicle::slowDownAction() { slowDown(acceleration); }
+void Vehicle::useAbility() { ability(); }
+void Vehicle::pressBreakAction() { pressBreak();}

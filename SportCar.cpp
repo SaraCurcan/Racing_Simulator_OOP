@@ -5,7 +5,7 @@
 int SportCar::availableNitro=0;
 SportCar::SportCar():Vehicle(){}
 SportCar::SportCar(std::string brand, std::string type, double maxSpeed, double price)
-    :Vehicle(brand,type,maxSpeed,price,0.0,1,0.4){}
+    :Vehicle(brand,type,maxSpeed,price,0.0,1,2.8){}
 
 SportCar::SportCar(const SportCar &obj):Vehicle(obj){}
 SportCar& SportCar::operator=(const SportCar& obj) {

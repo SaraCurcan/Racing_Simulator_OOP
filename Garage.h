@@ -18,6 +18,8 @@ public:
     void ShowOwnedVehicles() const;
     double getCoins() const;
     void setcoins(double value);
+    Vehicle* getVehicle(int index) const;
+    int getSize() const;
     bool checkVehicle(const std::string& brand, const std::string &type);
     friend std::ostream& operator<<(std::ostream& out, const Garage& obj);
     friend std::istream& operator>>(std::istream& in, Garage& obj);
