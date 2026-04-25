@@ -2,6 +2,7 @@
 #include "Exceptions.h"
 #include<iostream>
 #include<string>
+#include<fstream>
 int SportCar::availableNitro=0;
 SportCar::SportCar():Vehicle(){}
 SportCar::SportCar(std::string brand, std::string type, double maxSpeed, double price)
@@ -56,5 +57,17 @@ void SportCar::addNitro(int value) {
     if (value<0)
         throw InvalidNumber("Error: Nitro must be a positive number\n");
     availableNitro+=value;
+}
+
+void SportCar::save(std::ostream &out) const {
+    out<<"SportCar\n";
+    Vehicle::save(out);
+    out<<availableNitro<<"\n";
+}
+
+void SportCar::load(std::istream &in) {
+    Vehicle::load(in);
+    in>>availableNitro;
+    in.ignore();
 }
 

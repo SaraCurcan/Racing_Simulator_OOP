@@ -24,4 +24,8 @@ public:
     friend std::ostream& operator<<(std::ostream& out, const Garage& obj);
     friend std::istream& operator>>(std::istream& in, Garage& obj);
     void loadDefaultVehicles(const std::string& filename);
+    void saveFile(const std::string& filename);
+    void loadFile(const std::string& filename);
+    void load(std::istream& in);
+    void save(std::ostream& out) const;
 };

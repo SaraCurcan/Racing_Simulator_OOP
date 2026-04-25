@@ -7,6 +7,7 @@
 #include<string>
 #include<cstdlib>
 #include<ctime>
+#include<fstream>
 void GoToGarage(Garage& garage) {
     while (true) {
         std::cout<<"Money: "<<garage.getCoins()<<std::endl;
@@ -26,7 +27,7 @@ void GoToGarage(Garage& garage) {
                 std::cin>>index;
                 if (index<=0||index>garage.getSize())
                     throw InvalidNumber("Invalid Index\n");
-                garage.getVehicle(index-1)->applyUpgrade();
+                garage.Upgrade(index);
             }
             else if (choice=="0") break;
             else std::cout<<"Invalid option\n";
@@ -43,8 +44,15 @@ int main() {
     Shop shop;
     Race race(&garage);
     std::string choice;
-    garage.setcoins(10000);
-    garage.loadDefaultVehicles("Garage.txt");
+    std::ifstream file("save.txt");
+    if (file.is_open()) {
+        garage.load(file);
+        file.close();
+    }
+    else {
+        garage.setcoins(10000);
+        garage.loadDefaultVehicles("Garage.txt");
+    }
     while (choice!="0") {
         std::cout<<"0. EXIT\n";
         std::cout<<"1. GO TO GARAGE\n";
@@ -63,7 +71,21 @@ int main() {
                 race.chooseCar(garage);
                 race.racing();
             }
+            else if (choice=="4") {
+                std::ofstream file("save.txt");
+                garage.save(file);
+                file.close();
+                std::cout<<"Progress saved\n";
+            }
             else std::cout<<"Invalid option\n";
+        }
+        catch (const MyInvalidArgument& e)
+        {std::cout<<e.what();;}
+        catch (const InvalidNumber& e) {
+            std::cout<<e.what();;
+        }
+        catch (const InvalidNameException& e) {
+            std::cout<<e.what();
         }
         catch (const std::exception& e) {
             std::cout<<"Error "<<e.what();

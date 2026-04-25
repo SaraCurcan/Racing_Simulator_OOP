@@ -43,4 +43,7 @@ public:
     void slowDownAction();
     void useAbility();
     void pressBreakAction();
+    virtual void save(std::ostream& out) const;
+    virtual void load(std::istream& in);
+    void setMaxSpeed(double value);
 };

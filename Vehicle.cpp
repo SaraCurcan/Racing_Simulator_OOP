@@ -136,3 +136,31 @@ void Vehicle::accelerateAction() { accelerate(acceleration); }
 void Vehicle::slowDownAction() { slowDown(acceleration); }
 void Vehicle::useAbility() { ability(); }
 void Vehicle::pressBreakAction() { pressBreak();}
+
+void Vehicle::setMaxSpeed(double value) {
+    if (value<0)
+        throw InvalidNumber();
+    maxSpeed=value;
+}
+
+void Vehicle::save(std::ostream &out) const {
+    out<<brand<<"\n";
+    out<<type<<"\n";
+    out<<maxSpeed<<"\n";
+    out<<speed<<"\n";
+    out<<price<<"\n";
+    out<<level<<"\n";
+    out<<acceleration<<"\n";
+}
+void Vehicle::load(std::istream& in) {
+    std::getline(in>>std::ws,brand);
+    std::getline(in,type);
+    in>>maxSpeed;
+    in>>speed;
+    in>>price;
+    in>>level;
+    in>>acceleration;
+    in.ignore();
+
+
+}

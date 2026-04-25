@@ -63,3 +63,14 @@ std::istream& operator>>(std::istream& in, Truck& obj) {
     obj.setStability(0.0);
     return in;
 }
+void Truck::save(std::ostream &out) const {
+    out<<"Truck\n";
+    Vehicle::save(out);
+    out<<stability<<"\n";
+}
+
+void Truck::load(std::istream &in) {
+    Vehicle::load(in);
+    in>>stability;
+    in.ignore();
+}

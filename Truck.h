@@ -25,4 +25,6 @@ public:
     Vehicle* clone() const override {
         return new Truck(*this);
     };
+    virtual void load(std::istream& in) override;
+    virtual void save(std::ostream& out) const override;
 };

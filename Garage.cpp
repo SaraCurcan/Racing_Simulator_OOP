@@ -40,6 +40,8 @@ void Garage::Upgrade(int index) {
     if (coins>=2000) {
         Vehicle* v=list[index];
         v->applyUpgrade();
+        coins-=2000;
+
     }
     else std::cout<<"Not enough money\n";
 }
@@ -124,7 +126,7 @@ void Garage::loadDefaultVehicles(const std::string& filename) {
     double maxSpeed,price;
     while (file>>vehicleType>>brand>>type>>maxSpeed>>price) {
         Vehicle* v=nullptr;
-        if (vehicleType=="Sportcar")
+        if (vehicleType=="SportCar")
             v=new SportCar(brand,type,maxSpeed,price);
         else if (vehicleType=="Motorcycle")
             v=new Motorcycle(brand,type,maxSpeed,price,0.5);
@@ -137,4 +139,36 @@ void Garage::loadDefaultVehicles(const std::string& filename) {
 
     }
     file.close();
+}
+
+void Garage::save(std::ostream &out) const {
+    out<<coins<<"\n";
+    out<<list.size()<<"\n";
+    for (Vehicle* v: list) {
+        v->save(out);
+    }
+}
+
+void Garage::load(std::istream &in) {
+    for (Vehicle* v : list) delete v;
+    list.clear();
+    in>>coins;
+    int n;
+    in>>n;
+    in.ignore();
+    for (int i=0;i<n;i++) {
+        std::string type;
+        std::getline(in,type);
+        Vehicle* v=nullptr;
+        if (type == "SportCar")
+            v = new SportCar();
+        else if (type == "Motorcycle")
+            v = new Motorcycle();
+        else if (type == "Truck")
+            v = new Truck();
+        if (v) {
+            v->load(in);
+            list.push_back(v);
+        }
+    }
 }

@@ -66,3 +66,14 @@ std::ostream& operator<<(std::ostream& out, const Motorcycle& obj) {
     obj.print(out);
     return out;
 }
+void Motorcycle::save(std::ostream &out) const {
+    out<<"Motorcycle\n";
+    Vehicle::save(out);
+    out<<agility<<"\n";
+}
+
+void Motorcycle::load(std::istream &in) {
+    Vehicle::load(in);
+    in>>agility;
+    in.ignore();
+}
