@@ -173,7 +173,7 @@ void Race::racing() {
                 opponent->slowDownAction();
         }
             double playerSpeed=playerVehicle->getSpeed()+playerVehicle->getAcceleration();
-            double opponentSpeed=opponent->getSpeed()+opponent->getAcceleration();
+            double opponentSpeed=opponent->getSpeed()+opponent->getAcceleration()*0.8;
             playerSpeed=playerSpeed*weatherBehavior(playerVehicle);
             opponentSpeed=opponentSpeed*weatherBehavior(opponent);
             playerDistance+=playerSpeed;

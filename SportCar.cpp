@@ -22,7 +22,7 @@ void SportCar::applyUpgrade() {
     upgradetMaxSpeed(30.0);
     level+=1;
     acceleration+=(0.06*level);
-    availableNitro+=2;
+    availableNitro+=1;
     std::cout<<brand<<" "<<type<<" upgraded to level "<<level<<std::endl;
     std::cout<<"Max Speed: "<<getMaxSpeed()<<" acceleration power: "<<acceleration<<std::endl;
 }

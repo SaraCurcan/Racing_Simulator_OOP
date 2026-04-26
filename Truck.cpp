@@ -31,6 +31,7 @@ void Truck::applyUpgrade() {
     if (isMaxLevel())return;
     level+=1;
     acceleration+=(0.05*level);
+    upgradetMaxSpeed(25.0);
     stability+=0.4;
     stabilityUses+=2;
     std::cout<<brand<<" "<<type<<" upgraded to level "<<level<<std::endl;

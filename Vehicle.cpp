@@ -162,5 +162,4 @@ void Vehicle::load(std::istream& in) {
     in>>acceleration;
     in.ignore();
 
-
 }

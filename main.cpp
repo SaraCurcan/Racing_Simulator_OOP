@@ -27,7 +27,7 @@ void GoToGarage(Garage& garage) {
                 std::cin>>index;
                 if (index<=0||index>garage.getSize())
                     throw InvalidNumber("Invalid Index\n");
-                garage.Upgrade(index);
+                garage.Upgrade(index-1);
             }
             else if (choice=="0") break;
             else std::cout<<"Invalid option\n";

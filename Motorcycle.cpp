@@ -24,9 +24,10 @@ void Motorcycle::addLaneSplitUses(int value) {
 void Motorcycle::applyUpgrade() {
     if (isMaxLevel())return;
     level+=1;
+    upgradetMaxSpeed(20.0);
     acceleration+=(0.08*level);
     agility+=0.4;
-    laneSplitUses+=2;
+    laneSplitUses+=1;
     std::cout<<brand<<" "<<type<<" upgraded to level "<<level<<std::endl;
     std::cout<<"Max Speed: "<<getMaxSpeed()<<" acceleration power: "<<acceleration<<" agility: "<<agility<<std::endl;
 }
